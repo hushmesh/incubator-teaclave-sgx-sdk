@@ -7,4 +7,4 @@ fi
 
 set -e
 
-docker build --no-cache --platform linux/x86_64 -t "${CONTAINER_REGISTRY}/sgx-rust:ubuntu-2204-sgx-2.19-dcap-1.16" .
+docker build --no-cache --platform linux/x86_64 -t "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.16" .
