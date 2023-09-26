@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
 # First install packages listed at https://github.com/intel/linux-sgx
 RUN apt install -y build-essential ocaml ocamlbuild automake autoconf libtool python-is-python3 libssl-dev git cmake perl
-RUN apt install -y curl software-properties-common
+RUN apt install -y curl software-properties-common bsdmainutils
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
