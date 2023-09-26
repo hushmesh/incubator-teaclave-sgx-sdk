@@ -5,7 +5,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
 # First install packages listed at https://github.com/intel/linux-sgx
 RUN apt install -y build-essential ocaml ocamlbuild automake autoconf libtool python-is-python3 libssl-dev git cmake perl
-RUN apt install -y curl software-properties-common bsdmainutils
+RUN apt install -y curl software-properties-common bsdmainutils ninja-build
+
+#sccache dependencies
+RUN apt install -y libssl-dev pkg-config
+
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
@@ -29,6 +33,9 @@ RUN bash /root/04_psw.sh
 ENV rust_toolchain  nightly-2022-10-21
 ADD 05_rust.sh /root
 RUN bash /root/05_rust.sh
+
+ADD 06_sccache.sh /root
+RUN bash /root/06_sccache.sh
 
 ENV DEBIAN_FRONTEND=
 ENV CODENAME=
