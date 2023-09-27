@@ -9,5 +9,6 @@ curl 'https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-i
 chmod +x /root/rustup-init && \
 echo '1' | /root/rustup-init --default-toolchain ${rust_toolchain} && \
 /opt/cargo/bin/rustup component add rust-src rls rust-analysis clippy rustfmt && \
-/opt/cargo/bin/cargo --config "net.git-fetch-with-cli = true" install xargo
+/opt/cargo/bin/cargo --config "net.git-fetch-with-cli = true" install xargo && \
+rm /root/rustup-init
 ln -s /opt/rustup /root/.rustup

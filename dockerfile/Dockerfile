@@ -37,6 +37,9 @@ RUN bash /root/05_rust.sh
 ADD 06_sccache.sh /root
 RUN bash /root/06_sccache.sh
 
+ADD 07_cleanup.sh /root
+RUN bash /root/07_cleanup.sh
+
 ENV DEBIAN_FRONTEND=
 ENV CODENAME=
 ENV VERSION=
