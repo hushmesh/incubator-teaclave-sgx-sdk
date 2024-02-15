@@ -10,6 +10,9 @@ RUN apt install -y curl software-properties-common bsdmainutils ninja-build
 #sccache dependencies
 RUN apt install -y libssl-dev pkg-config
 
+# security patches
+RUN unattended-upgrade -d
+
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
@@ -28,17 +31,15 @@ ENV DCAP_VERSION    1.16.100.2-jammy1
 ADD 04_psw.sh /root
 RUN bash /root/04_psw.sh
 
+ARG runtimeOnly
+
 # Seventh, Rust
 
 ENV rust_toolchain  nightly-2022-10-21
 ADD 05_rust.sh /root
-RUN bash /root/05_rust.sh
-
 ADD 06_sccache.sh /root
-RUN bash /root/06_sccache.sh
-
 ADD 07_cleanup.sh /root
-RUN bash /root/07_cleanup.sh
+RUN bash -c 'if [[ "$runtimeOnly" != "1" ]]; then bash /root/05_rust.sh && bash /root/06_sccache.sh && bash /root/07_cleanup.sh; fi'
 
 ENV DEBIAN_FRONTEND=
 ENV CODENAME=

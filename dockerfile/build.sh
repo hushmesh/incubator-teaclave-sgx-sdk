@@ -7,4 +7,11 @@ fi
 
 set -e
 
-docker build --no-cache --platform linux/x86_64 -t "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.16" .
+case $1 in
+   "runtime")
+       docker build --no-cache  --build-arg runtimeOnly=1 --platform linux/x86_64 -t "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.16-runtime" .
+       ;;
+   *)
+       docker build --no-cache --platform linux/x86_64 -t "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.16" .
+       ;;
+esac
