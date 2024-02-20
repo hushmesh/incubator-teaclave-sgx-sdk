@@ -10,9 +10,6 @@ RUN apt install -y curl software-properties-common bsdmainutils ninja-build
 #sccache dependencies
 RUN apt install -y libssl-dev pkg-config
 
-# security patches
-RUN unattended-upgrade -d
-
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
@@ -45,5 +42,9 @@ ENV DEBIAN_FRONTEND=
 ENV CODENAME=
 ENV VERSION=
 ENV DCAP_VERSION=
+
+# security patches
+# We need the apt update first to get the latest for installed packages
+RUN apt update && unattended-upgrade -d
 
 WORKDIR /root
