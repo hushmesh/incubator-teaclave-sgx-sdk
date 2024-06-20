@@ -8,3 +8,6 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io
 usermod -g docker root
+
+# Install azure cli
+curl -sL https://aka.ms/InstallAzureCLIDeb | bash
