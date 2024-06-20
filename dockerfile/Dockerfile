@@ -35,8 +35,9 @@ ARG runtimeOnly
 ENV rust_toolchain  nightly-2022-10-21
 ADD 05_rust.sh /root
 ADD 06_sccache.sh /root
-ADD 07_cleanup.sh /root
-RUN bash -c 'if [[ "$runtimeOnly" != "1" ]]; then bash /root/05_rust.sh && bash /root/06_sccache.sh && bash /root/07_cleanup.sh; fi'
+ADD 07_docker.sh /root
+ADD 08_cleanup.sh /root
+RUN bash -c 'if [[ "$runtimeOnly" != "1" ]]; then bash /root/05_rust.sh && bash /root/06_sccache.sh && bash /root/07_docker.sh && bash /root/08_cleanup.sh; fi'
 
 ENV DEBIAN_FRONTEND=
 ENV CODENAME=
