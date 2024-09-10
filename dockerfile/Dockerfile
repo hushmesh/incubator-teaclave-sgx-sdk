@@ -32,7 +32,7 @@ ARG runtimeOnly
 
 # Seventh, Rust
 
-ENV rust_toolchain  nightly-2022-10-21
+ENV rust_toolchain  1.81
 ADD 05_rust.sh /root
 ADD 06_sccache.sh /root
 ADD 07_docker.sh /root
