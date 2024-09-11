@@ -12,6 +12,6 @@ case $1 in
         docker push "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.16-runtime"
         ;;
    *)
-        docker push "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.16-sccache"
+        docker push "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:rust-1.81-sgx-2.19-dcap-1.16-sccache"
         ;;
 esac

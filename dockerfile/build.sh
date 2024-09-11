@@ -12,6 +12,6 @@ case $1 in
        docker build --no-cache  --build-arg runtimeOnly=1 --platform linux/x86_64 -t "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.16-runtime" .
        ;;
    *)
-       docker build --no-cache --platform linux/x86_64 -t "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.16-sccache" .
+       docker build --no-cache --platform linux/x86_64 -t "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:rust-1.81-sgx-2.19-dcap-1.16-sccache" .
        ;;
 esac
