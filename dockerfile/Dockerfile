@@ -15,7 +15,7 @@ RUN rm -rf /var/lib/apt/lists/*
 ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
 ENV LD_RUN_PATH=/usr/lib:/usr/local/lib
 
-ENV SDK_URL="https://download.01.org/intel-sgx/sgx-linux/2.26/distro/ubuntu22.04-server/sgx_linux_x64_sdk_2.26.100.0.bin"
+ENV SDK_URL="https://download.01.org/intel-sgx/sgx-linux/2.19/distro/ubuntu22.04-server/sgx_linux_x64_sdk_2.19.100.3.bin"
 ADD 03_sdk.sh /root
 RUN bash /root/03_sdk.sh
 

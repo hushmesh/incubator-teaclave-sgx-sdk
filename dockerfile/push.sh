@@ -9,9 +9,9 @@ set -e
 
 case $1 in
    "runtime")
-        docker push "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.26-dcap-1.23-runtime"
+        docker push "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:sgx-2.19-dcap-1.23-runtime"
         ;;
    *)
-        docker push "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:rust-1.81-sgx-2.26-dcap-1.23-sccache"
+        docker push "${CONTAINER_REGISTRY}/sgx-rust/ubuntu-2204:rust-1.81-sgx-2.19-dcap-1.23-sccache"
         ;;
 esac
